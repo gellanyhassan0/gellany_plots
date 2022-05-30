@@ -21,8 +21,8 @@ name: Upload Python Package
             pip install setuptools wheel twine
         - name: Build and publish
           env:
-            TWINE_USERNAME: gellany
-            TWINE_PASSWORD: pypi-AgEIcHlwaS5vcmcCJDJlZjA2YmEwLTY5MzYtNGVmNS1iNjBiLTkwMDgyN2VmMThhNwACJXsicGVybWlzc2lvbnMiOiAidXNlciIsICJ2ZXJzaW9uIjogMX0AAAYgB6HEhx1CgfQsrXHGVKMO9HLePH_a7zUH2MZTGP6HBkQ
+            TWINE_USERNAME: $
+            TWINE_PASSWORD: $
           run: |
             python setup.py sdist bdist_wheel
             twine upload dist/*
