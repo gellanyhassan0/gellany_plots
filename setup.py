@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="gellany_plots",
-    version="0.0.1",
+    version=__version__,
     author="Elgilany Hassan",
     author_email="gellanyhassan0@gmail.com",
     description="hybrid plots analysis",
