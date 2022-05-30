@@ -2,6 +2,8 @@ import setuptools
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
+with open('requirements.txt','r') as fr:
+    requires = fr.read().split('\n')
 
 setuptools.setup(
     name="gellany_plots",
@@ -23,4 +25,5 @@ setuptools.setup(
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
     python_requires=">=3.6",
+    install_requires=requires,
 )
