@@ -38,5 +38,5 @@ jobs:
       - name: Publish a Python distribution to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-            TWINE_USERNAME: github
-            TWINE_PASSWORD: pypi-AgEIcHlwaS5vcmcCJDJlZjA2YmEwLTY5MzYtNGVmNS1iNjBiLTkwMDgyN2VmMThhNwACJXsicGVybWlzc2lvbnMiOiAidXNlciIsICJ2ZXJzaW9uIjogMX0AAAYgB6HEhx1CgfQsrXHGVKMO9HLePH_a7zUH2MZTGP6HBkQ
+            user:: github
+            password: pypi-AgEIcHlwaS5vcmcCJDJlZjA2YmEwLTY5MzYtNGVmNS1iNjBiLTkwMDgyN2VmMThhNwACJXsicGVybWlzc2lvbnMiOiAidXNlciIsICJ2ZXJzaW9uIjogMX0AAAYgB6HEhx1CgfQsrXHGVKMO9HLePH_a7zUH2MZTGP6HBkQ
