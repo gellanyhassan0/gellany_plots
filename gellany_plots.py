@@ -163,6 +163,10 @@ class dist():
 
 
 
+    def distribution_corr(self):
+                   
+                sns.heatmap(self.data.corr())
+                plt.show()
 
 
 
@@ -241,6 +245,12 @@ elif args.distribution == 'count_multi':
                  dist(args.column1).distribution_count_multi()
          except:
                  print("error in .distribution_count_multi")
+
+elif args.distribution == 'corr':
+
+
+                 dist().distribution_corr()
+
 
 elif args.distribution == None:
          try:
