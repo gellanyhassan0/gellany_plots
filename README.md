@@ -19,11 +19,16 @@ https://github.com/gellanyhassan0/gellany_plots
 
   
 <code>python3 gellany_plots.py -h
-usage: gellany_plots.py [-h] [--file FILE] [--distribution DISTRIBUTION]
+usage: gellany_plots.py [-h] [--file FILE] [--distribution DISTRIBUTION] [--transformed TRANSFORMED] [--column1 COLUMN1]
+                        [--column2 COLUMN2]
 
 optional arguments:
   -h, --help            show this help message and exit
   --file FILE
-  --distribution DISTRIBUTION</code><br>
+  --distribution DISTRIBUTION
+  --transformed TRANSFORMED
+  --column1 COLUMN1
+  --column2 COLUMN2
+</code><br>
 
     
