@@ -248,9 +248,10 @@ elif args.distribution == 'count_multi':
 
 elif args.distribution == 'corr':
 
-
+         try:
                  dist().distribution_corr()
-
+         except:
+                 print("error in .distribution_corr")
 
 elif args.distribution == None:
          try:
