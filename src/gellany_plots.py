@@ -3,7 +3,7 @@ import pandas as pd
 import sys
 import matplotlib.pyplot as plt
 import argparse
-
+import seaborn as sns
 
 
 
@@ -83,14 +83,85 @@ class dist():
            
            plt.show()
            
+     
+    def distribution_pie_binary(self):
+
+                percent_zero = len(self.var1.loc[(self.var1 == 0)].reset_index(drop=True))-1
+                percent_one = len(self.var1.loc[(self.var1 == 1)].reset_index(drop=True))-1
+
+                plt.figure(figsize =(4,4))
+                labels = 'percent_one', 'percent_zero'
+                sizes = [percent_one, percent_zero]
+                colors = ['yellowgreen', 'gold']
+                explode = (0, 0.1)
+                plt.pie(sizes, explode=explode, labels=labels, colors=colors,
+                autopct='%1.1f%%', shadow=True, startangle=90)
+                plt.axis('equal')
+                plt.title(args.column1)
+                plt.show()
+
+    def distribution_pie_multi(self):
+
+
+                self.var1.value_counts().plot(kind='pie',autopct='%.2f')
+                plt.show()
+
+    
+    def distribution_sns(self):
+               
+                print(self.var2)
+                if self.var2 == 'boxplot':
+                       sns.boxplot(self.var1)
+                       plt.show()
+
+                elif self.var2 == 'countplot':
+                       sns.countplot(self.var1)
+                       plt.show()
+              
+                elif self.var2 == 'distplot':
+                       sns.distplot(self.var1)
+                       plt.show()
+    
+    def distribution_count_multi(self):
+
+                columns_cat = []
+                for i ,k in enumerate(self.data):
+                         
+                         if len(pd.unique(self.data[k])) <= 20:
+                                   columns_cat.append(k)
+
+                fig, axs = plt.subplots(ncols=2, nrows=3, figsize=(50, 50))
+                plt.subplots_adjust(right=0.95, top=0.95)
+
+                for i, col in enumerate(columns_cat, 1):    
+                         plt.subplot(2,3, i)
+                         sns.countplot(x=col, hue=self.var1, data=self.data)
+    
+                         plt.xlabel('{}'.format(col), size=10, labelpad=1)
+                         plt.ylabel('Count', size=10, labelpad=10)    
+                         plt.tick_params(axis='x', labelsize=10)
+                         plt.tick_params(axis='y', labelsize=10)
+    
+                         plt.legend([('not' + self.var1), (self.var1)], loc='upper center', prop={'size': 10})
+                         plt.title('Count legend in {} Feature'.format(col), size=10, y=0.98)
+
+                plt.show()
+
+
+
+
+
+
 
 my_parser = argparse.ArgumentParser()
-my_parser.add_argument('--file', action='store')
-my_parser.add_argument('--distribution', action='store')
+my_parser.add_argument('--file')
+my_parser.add_argument('--distribution')
+my_parser.add_argument('--transformed')
+my_parser.add_argument('--column1')
+my_parser.add_argument('--column2')
 args = my_parser.parse_args()
 
 print(args.file)
-
 
 if args.file:
       read_file = args.file or ''
@@ -98,8 +169,10 @@ else :
       read_file = 'train.csv'
 
 data = pd.read_csv(read_file)
-skewed = ['Fare']
-features_log_transformed = data[skewed].apply(lambda x: np.log(x + 1))
+
+if args.transformed:
+     skewed = [args.transformed]
+     features_log_transformed = data[skewed].apply(lambda x: np.log(x + 1))
 
 
 if args.distribution == 'single':
@@ -108,10 +181,11 @@ if args.distribution == 'single':
                  dist(features_log_transformed, 'features_log_transformed', transformed = True).distribution_single()
          except:
                  print("error : if choise --file train.csv should be choise between two argement(--distribution single or --distribution double)")
+
 elif args.distribution == 'double':
 
          try:
-                 dist(data['Age'] ,'Age' , data['Sex'], 'Sex').distribution_double()
+                 dist(data[args.column1] ,args.column1 , data[args.column2], args.column2).distribution_double()
          except:
                  print("error : if choise --file train.csv should be choise between two argement(--distribution single or --distribution double)")
  
@@ -121,6 +195,35 @@ elif args.distribution == 'multi':
                  dist().distribution_multi()
          except:
                  print("error in .distribution_multi")
+
+elif args.distribution == 'pie_binary':
+
+         try:
+                 dist(data[args.column1]).distribution_pie_binary()
+         except:
+                 print("error in .distribution_pie_binary")
+
+elif args.distribution == 'pie_multi':
+
+         try:
+                 dist(data[args.column1]).distribution_pie_multi()
+         except:
+                 print("error in .distribution_pie_multi")
+
+
+elif args.distribution == 'boxplot' or args.distribution == 'countplot' or args.distribution == 'distplot':
+
+         try:
+                 dist(data[args.column1], var2 = args.distribution).distribution_sns()
+         except:
+                 print("error in .distribution_sns")
+
+elif args.distribution == 'count_multi':
+           
+         try:
+                 dist(args.column1).distribution_count_multi()
+         except:
+                 print("error in .distribution_count_multi")
 
 elif args.distribution == None:
          try:
