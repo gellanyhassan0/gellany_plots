@@ -142,6 +142,16 @@ class dist():
                    except: 
                            print('error in corr') 
              
+
+                elif self.type == 'kdeplot':
+                   try :
+                           sns.kdplot(self.var1[self.var2])
+                           plt.show()
+                   except: 
+                           sns.kdeplot(self.var1)
+                           plt.show()
+
+
     
     def distribution_count_multi(self):
 
@@ -237,7 +247,7 @@ elif args.distribution == 'pie_multi':
                  print("error in .distribution_pie_multi")
 
 
-elif args.distribution == 'boxplot' or args.distribution == 'countplot' or args.distribution == 'distplot' or args.distribution == 'corr':
+elif args.distribution == 'boxplot' or args.distribution == 'countplot' or args.distribution == 'distplot' or args.distribution == 'corr' or args.distribution == 'kdeplot' :
 
     try:         
 
@@ -248,6 +258,9 @@ elif args.distribution == 'boxplot' or args.distribution == 'countplot' or args.
                  dist(var1 = data[args.column1] ,type= args.distribution).distribution_sns()
          elif isinstance(args.distribution, str) == True :
                  dist(type= args.distribution).distribution_sns()
+         elif isinstance(args.column1, str) == True and isinstance(args.column2, str) == True and isinstance(args.distribution, str) == True:
+                 dist(var1 = data[args.column1][args.column2], type= args.distribution).distribution_sns()
+
     except:
                 print("error in .distribution_sns")
 
