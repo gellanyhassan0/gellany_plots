@@ -3,7 +3,7 @@
 https://github.com/gellanyhassan0/gellany_plots
 '''
 
-<code>python3 gellany_plots.py -h</code><br>
+
 <code>python3 gellany_plots.py </code><br>
 <code>python3 gellany_plots.py --file train.csv </code><br>
 <code>python3 gellany_plots.py --file train.csv --distr multi</code><br>
@@ -17,7 +17,7 @@ https://github.com/gellanyhassan0/gellany_plots
 <code>python3 gellany_plots.py --file train.csv --distr distplot --column1 Pclass</code><br>
 <code>python3 gellany_plots.py --file train.csv --distr count_multi --column1 Survived</code><br>
 
-  
+<code>python3 gellany_plots.py -h</code><br>  
 <code>python3 gellany_plots.py -h
 usage: gellany_plots.py [-h] [--file FILE] [--distribution DISTRIBUTION] [--transformed TRANSFORMED] [--column1 COLUMN1]
                         [--column2 COLUMN2]
