@@ -12,8 +12,9 @@ https://github.com/gellanyhassan0/gellany_plots
 <code>python3 gellany_plots.py --file train.csv --distr single --transformed Fare</code><br>
 <code>python3 gellany_plots.py --file train.csv --distr double --column1 'Age' --column2 'Sex'</code><br>
 <code>python3 gellany_plots.py --file train.csv --distr pie_binary --column1 Survived</code><br>
-<code>python3 gellany_plots.py --file train.csv --distr plot_count --column1 Pclass</code><br>
-<code>python3 gellany_plots.py --file train.csv --distr dist_sns --column1 Pclass</code><br>
+<code>python3 gellany_plots.py --file train.csv --distr countplot --column1 Pclass</code><br>
+<code>python3 gellany_plots.py --file train.csv --distr boxplot --column1 Pclass</code><br>
+<code>python3 gellany_plots.py --file train.csv --distr distplot --column1 Pclass</code><br>
 
   
 <code>python3 gellany_plots.py -h
