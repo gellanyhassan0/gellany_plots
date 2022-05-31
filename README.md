@@ -11,6 +11,8 @@ https://github.com/gellanyhassan0/gellany_plots
 <code>python3 gellany_plots.py --file train.csv --distr double</code><br>
 <code>python3 gellany_plots.py --file train.csv --distr single --transformed Fare</code><br>
 <code>python3 gellany_plots.py --file train.csv --distr double --column1 'Age' --column2 'Sex'</code><br>
+<code>python3 gellany_plots.py --file train.csv --distr pie_binary --column1 Survived</code><br>
+
   
 <code>python3 gellany_plots.py -h
 usage: gellany_plots.py [-h] [--file FILE] [--distribution DISTRIBUTION]
