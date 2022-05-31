@@ -10,7 +10,7 @@ import seaborn as sns
 class dist():
     
 # init method or constructor
-    def __init__(self, var1= None, title1 = '', var2 = None, title2 = '', transformed = False, read_file = None):
+    def __init__(self, var1= None, title1 = '', var2 = None, title2 = '', transformed = False, read_file = None, hue= None, type =None):
           
           self.data = data
           self.var1 = var1
@@ -19,7 +19,8 @@ class dist():
           self.title2 = title2
           self.transformed = transformed
           self.read_file = str(read_file)
-          
+          self.hue = hue
+          self.type = type
 
     def distribution_single(self):
     
@@ -110,17 +111,29 @@ class dist():
     def distribution_sns(self):
                
                 print(self.var2)
-                if self.var2 == 'boxplot':
-                       sns.boxplot(self.var1)
-                       plt.show()
+                if self.type == 'boxplot':
+                   try :
+                           sns.boxplot(x=self.var1, y=self.var2 ,hue=self.hue)
+                           plt.show()
+                   except: 
+                           sns.boxplot(self.var1)
+                           plt.show()
 
-                elif self.var2 == 'countplot':
-                       sns.countplot(self.var1)
-                       plt.show()
+                elif self.type == 'countplot':
+                   try :
+                           sns.countplot(x=self.var1, y=self.var2 ,hue=self.hue)
+                           plt.show()
+                   except: 
+                           sns.countplot(self.var1)
+                           plt.show()
               
-                elif self.var2 == 'distplot':
-                       sns.distplot(self.var1)
-                       plt.show()
+                elif self.type == 'distplot':
+                   try :
+                           sns.distplot(x=self.var1, y=self.var2 ,hue=self.hue)
+                           plt.show()
+                   except: 
+                           sns.distplot(self.var1)
+                           plt.show()
     
     def distribution_count_multi(self):
 
@@ -159,6 +172,7 @@ my_parser.add_argument('--distribution')
 my_parser.add_argument('--transformed')
 my_parser.add_argument('--column1')
 my_parser.add_argument('--column2')
+my_parser.add_argument('--hue')
 args = my_parser.parse_args()
 
 print(args.file)
@@ -213,10 +227,13 @@ elif args.distribution == 'pie_multi':
 
 elif args.distribution == 'boxplot' or args.distribution == 'countplot' or args.distribution == 'distplot':
 
-         try:
-                 dist(data[args.column1], var2 = args.distribution).distribution_sns()
+         
+
+         try : 
+                 dist(var1 = data[args.column1], var2 = data[args.column2], hue= data[args.hue], type= args.distribution).distribution_sns()
          except:
                  print("error in .distribution_sns")
+                 
 
 elif args.distribution == 'count_multi':
            
