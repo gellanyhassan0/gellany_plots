@@ -220,8 +220,10 @@ elif args.distribution == 'boxplot' or args.distribution == 'countplot' or args.
 
 elif args.distribution == 'count_multi':
            
+         try:
                  dist(args.column1).distribution_count_multi()
-
+         except:
+                 print("error in .distribution_count_multi")
 
 elif args.distribution == None:
          try:
