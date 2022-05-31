@@ -16,6 +16,6 @@ usage: gellany_plots.py [-h] [--file FILE] [--distribution DISTRIBUTION]
 optional arguments:
   -h, --help            show this help message and exit
   --file FILE
-  --distribution DISTRIBUTION
+  --distribution DISTRIBUTION</code><br>
 
     
