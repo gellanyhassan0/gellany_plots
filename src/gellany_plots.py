@@ -110,7 +110,7 @@ class dist():
     
     def distribution_sns(self):
                
-                print(self.var2)
+                
                 if self.type == 'boxplot':
                    try :
                            sns.boxplot(x=self.var1, y=self.var2 ,hue=self.hue)
@@ -134,6 +134,14 @@ class dist():
                    except: 
                            sns.distplot(self.var1)
                            plt.show()
+                
+                elif self.type == 'corr':
+                   try :
+                           sns.heatmap(self.data.corr())
+                           plt.show()
+                   except: 
+                           print('error in corr') 
+             
     
     def distribution_count_multi(self):
 
@@ -229,15 +237,19 @@ elif args.distribution == 'pie_multi':
                  print("error in .distribution_pie_multi")
 
 
-elif args.distribution == 'boxplot' or args.distribution == 'countplot' or args.distribution == 'distplot':
+elif args.distribution == 'boxplot' or args.distribution == 'countplot' or args.distribution == 'distplot' or args.distribution == 'corr':
 
-         
+    try:         
 
-         try : 
+         if isinstance(args.column1, str) == True and isinstance(args.column2, str) == True and isinstance(args.hue, str) == True and isinstance(args.distribution, str) == True: 
                  dist(var1 = data[args.column1], var2 = data[args.column2], hue= data[args.hue], type= args.distribution).distribution_sns()
-         except:
-                 print("error in .distribution_sns")
-                 
+                
+         elif isinstance(args.column1, str) == True and isinstance(args.distribution, str) == True:
+                 dist(var1 = data[args.column1] ,type= args.distribution).distribution_sns()
+         elif isinstance(args.distribution, str) == True :
+                 dist(type= args.distribution).distribution_sns()
+    except:
+                print("error in .distribution_sns")
 
 elif args.distribution == 'count_multi':
            
@@ -246,12 +258,6 @@ elif args.distribution == 'count_multi':
          except:
                  print("error in .distribution_count_multi")
 
-elif args.distribution == 'corr':
-
-         try:
-                 dist().distribution_corr()
-         except:
-                 print("error in .distribution_corr")
 
 elif args.distribution == None:
          try:
