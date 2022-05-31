@@ -15,6 +15,7 @@ https://github.com/gellanyhassan0/gellany_plots
 <code>python3 gellany_plots.py --file train.csv --distr countplot --column1 Pclass</code><br>
 <code>python3 gellany_plots.py --file train.csv --distr boxplot --column1 Pclass</code><br>
 <code>python3 gellany_plots.py --file train.csv --distr distplot --column1 Pclass</code><br>
+<code>python3 gellany_plots.py --file train.csv --distr count_multi --column1 Survived</code><br>
 
   
 <code>python3 gellany_plots.py -h
