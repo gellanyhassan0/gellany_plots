@@ -253,13 +253,13 @@ elif args.distribution == 'boxplot' or args.distribution == 'countplot' or args.
 
          if isinstance(args.column1, str) == True and isinstance(args.column2, str) == True and isinstance(args.hue, str) == True and isinstance(args.distribution, str) == True: 
                  dist(var1 = data[args.column1], var2 = data[args.column2], hue= data[args.hue], type= args.distribution).distribution_sns()
-                
+         elif isinstance(args.column1, str) == True and isinstance(args.column2, str) == True and isinstance(args.distribution, str) == True:
+                 dist(var1 = data[args.column1][args.column2], type= args.distribution).distribution_sns()
          elif isinstance(args.column1, str) == True and isinstance(args.distribution, str) == True:
                  dist(var1 = data[args.column1] ,type= args.distribution).distribution_sns()
          elif isinstance(args.distribution, str) == True :
                  dist(type= args.distribution).distribution_sns()
-         elif isinstance(args.column1, str) == True and isinstance(args.column2, str) == True and isinstance(args.distribution, str) == True:
-                 dist(var1 = data[args.column1][args.column2], type= args.distribution).distribution_sns()
+
 
     except:
                 print("error in .distribution_sns")
