@@ -199,6 +199,7 @@ args = my_parser.parse_args()
 
 print(args.file)
 
+
 if args.file:
       read_file = args.file or ''
 else :
@@ -210,74 +211,74 @@ if args.transformed:
      skewed = [args.transformed]
      features_log_transformed = data[skewed].apply(lambda x: np.log(x + 1))
 
+def main():
+			if args.distribution == 'single':
 
-if args.distribution == 'single':
+				 try:
+					 dist(features_log_transformed, 'features_log_transformed', transformed = True).distribution_single()
+				 except:
+					 print("error : if choise --file train.csv should be choise between two argement(--distribution single or --distribution double)")
 
-         try:
-                 dist(features_log_transformed, 'features_log_transformed', transformed = True).distribution_single()
-         except:
-                 print("error : if choise --file train.csv should be choise between two argement(--distribution single or --distribution double)")
+			elif args.distribution == 'double':
 
-elif args.distribution == 'double':
+				 try:
+					 dist(data[args.column1] ,args.column1 , data[args.column2], args.column2).distribution_double()
+				 except:
+					 print("error : if choise --file train.csv should be choise between two argement(--distribution single or --distribution double)")
+			 
+			elif args.distribution == 'multi':
 
-         try:
-                 dist(data[args.column1] ,args.column1 , data[args.column2], args.column2).distribution_double()
-         except:
-                 print("error : if choise --file train.csv should be choise between two argement(--distribution single or --distribution double)")
- 
-elif args.distribution == 'multi':
+				 try:
+					 dist().distribution_multi()
+				 except:
+					 print("error in .distribution_multi")
 
-         try:
-                 dist().distribution_multi()
-         except:
-                 print("error in .distribution_multi")
+			elif args.distribution == 'pie_binary':
 
-elif args.distribution == 'pie_binary':
+				 try:
+					 dist(data[args.column1]).distribution_pie_binary()
+				 except:
+					 print("error in .distribution_pie_binary")
 
-         try:
-                 dist(data[args.column1]).distribution_pie_binary()
-         except:
-                 print("error in .distribution_pie_binary")
+			elif args.distribution == 'pie_multi':
 
-elif args.distribution == 'pie_multi':
-
-         try:
-                 dist(data[args.column1]).distribution_pie_multi()
-         except:
-                 print("error in .distribution_pie_multi")
-
-
-elif args.distribution == 'boxplot' or args.distribution == 'countplot' or args.distribution == 'distplot' or args.distribution == 'corr' or args.distribution == 'kdeplot' :
-
-    try:         
-
-         if isinstance(args.column1, str) == True and isinstance(args.column2, str) == True and isinstance(args.hue, str) == True and isinstance(args.distribution, str) == True: 
-                 dist(var1 = data[args.column1], var2 = data[args.column2], hue= data[args.hue], type= args.distribution).distribution_sns()
-         elif isinstance(args.column1, str) == True and isinstance(args.column2, str) == True and isinstance(args.distribution, str) == True:
-                 dist(var1 = data[args.column1][args.column2], type= args.distribution).distribution_sns()
-         elif isinstance(args.column1, str) == True and isinstance(args.distribution, str) == True:
-                 dist(var1 = data[args.column1] ,type= args.distribution).distribution_sns()
-         elif isinstance(args.distribution, str) == True :
-                 dist(type= args.distribution).distribution_sns()
+				 try:
+					 dist(data[args.column1]).distribution_pie_multi()
+				 except:
+					 print("error in .distribution_pie_multi")
 
 
-    except:
-                print("error in .distribution_sns")
+			elif args.distribution == 'boxplot' or args.distribution == 'countplot' or args.distribution == 'distplot' or args.distribution == 'corr' or args.distribution == 'kdeplot' :
 
-elif args.distribution == 'count_multi':
-           
-         try:
-                 dist(args.column1).distribution_count_multi()
-         except:
-                 print("error in .distribution_count_multi")
+			     try:         
 
-
-elif args.distribution == None:
-         try:
-                 dist(data['Age'] ,'Age' , data['Sex'], 'Sex').distribution_double()
-         except:
-                 print("An exception occurred") 
-
-#dist(data['Age'] ,'Age' , data['Sex'], 'Sex').distribution_double()
+				     if isinstance(args.column1, str) == True and isinstance(args.column2, str) == True and isinstance(args.hue, str) == True and isinstance(args.distribution, str) == True: 
+                    					 dist(var1 = data[args.column1], var2 = data[args.column2], hue= data[args.hue], type= args.distribution).distribution_sns()
+				     elif isinstance(args.column1, str) == True and isinstance(args.column2, str) == True and isinstance(args.distribution, str) == True:
+			                    		 dist(var1 = data[args.column1][args.column2], type= args.distribution).distribution_sns()
+				     elif isinstance(args.column1, str) == True and isinstance(args.distribution, str) == True:
+					                 dist(var1 = data[args.column1] ,type= args.distribution).distribution_sns()
+				     elif isinstance(args.distribution, str) == True :
+					                 dist(type= args.distribution).distribution_sns()
 
 
+			     except:
+					                 print("error in .distribution_sns")
+
+			elif args.distribution == 'count_multi':
+				   
+				 try:
+					 dist(args.column1).distribution_count_multi()
+				 except:
+					 print("error in .distribution_count_multi")
+
+
+			elif args.distribution == None:
+				 try:
+					 dist(data['Age'] ,'Age' , data['Sex'], 'Sex').distribution_double()
+				 except:
+					 print("An exception occurred") 
+
+			#dist(data['Age'] ,'Age' , data['Sex'], 'Sex').distribution_double()
+
+main()
