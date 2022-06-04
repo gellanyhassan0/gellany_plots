@@ -19,6 +19,7 @@ https://github.com/gellanyhassan0/gellany_plots
 <code>python3 gellany_plots.py --file train.csv --distr boxplot --column1 Survived --column2 Age --hue Sex</code><br>
 <code>python3 gellany_plots.py --file train.csv --distr corr</code><br>
 <code>python3 gellany_plots.py --file train.csv --distr kdeplot --column1 Pclass</code><br>
+<code>python3 gellany_plots.py --file train.csv --distr boxplot --hue Survived --column1 Age --column2 Sex</code><br>
 
 
 <code>python3 gellany_plots.py -h</code><br>  
