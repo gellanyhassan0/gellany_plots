@@ -1,7 +1,10 @@
-# gellany_plots
-'''
-https://github.com/gellanyhassan0/gellany_plots
-'''
+# gellany_plots 
+automate you csv files to presenation as model plot as easy way in command line <br>
+
+<code>git clone https://github.com/gellanyhassan0/gellany_plots.git</code><br>
+<code>cd gellany_plots</code><br>
+<code>pip install -r requirements.txt</code><br>
+
 
 
 <code>python3 gellany_plots.py </code><br>
