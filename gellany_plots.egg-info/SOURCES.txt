@@ -1,8 +1,0 @@
-LICENSE
-README.md
-setup.py
-gellany_plots.egg-info/PKG-INFO
-gellany_plots.egg-info/SOURCES.txt
-gellany_plots.egg-info/dependency_links.txt
-gellany_plots.egg-info/requires.txt
-gellany_plots.egg-info/top_level.txt
