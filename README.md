@@ -41,6 +41,7 @@ optional arguments:
 
 </code><br>
 
+<code>python3 gellany_plots.py --file train.csv --distr boxplot --column1 Survived --column2 Age --hue Sex</code><br>
 ![alt text](https://github.com/gellanyhassan0/gellany_plots/blob/main/Figure_1.png?raw=true)
 
 [![asciicast](https://asciinema.org/a/sJrIlSag8Zwz145LQuxQjbWpY.svg)](https://asciinema.org/a/sJrIlSag8Zwz145LQuxQjbWpY)
