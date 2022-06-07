@@ -41,6 +41,8 @@ optional arguments:
 
 </code><br>
 
- [![asciicast](https://asciinema.org/a/sJrIlSag8Zwz145LQuxQjbWpY.svg)](https://asciinema.org/a/sJrIlSag8Zwz145LQuxQjbWpY)
+![alt text]https://github.com/gellanyhassan0/gellany_plots/blob/main/Figure_1.png?raw=true)
+
+[![asciicast](https://asciinema.org/a/sJrIlSag8Zwz145LQuxQjbWpY.svg)](https://asciinema.org/a/sJrIlSag8Zwz145LQuxQjbWpY)
  
 [![asciicast](https://asciinema.org/a/JP0v9hfWgFMHlywYccWfaktry.svg)](https://asciinema.org/a/JP0v9hfWgFMHlywYccWfaktry)
