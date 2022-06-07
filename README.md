@@ -43,4 +43,4 @@ optional arguments:
 
  [![asciicast](https://asciinema.org/a/sJrIlSag8Zwz145LQuxQjbWpY.svg)](https://asciinema.org/a/sJrIlSag8Zwz145LQuxQjbWpY)
  
-<script id="asciicast-sJrIlSag8Zwz145LQuxQjbWpY" src="https://asciinema.org/a/sJrIlSag8Zwz145LQuxQjbWpY.js" async></script>
+[![asciicast](https://asciinema.org/a/JP0v9hfWgFMHlywYccWfaktry.svg)](https://asciinema.org/a/JP0v9hfWgFMHlywYccWfaktry)
