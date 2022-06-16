@@ -23,6 +23,7 @@ automate you csv files to presenation as model plot as easy way in command line 
 <code>python3 gellany_plots.py --file train.csv --distr corr</code><br>
 <code>python3 gellany_plots.py --file train.csv --distr kdeplot --column1 Pclass</code><br>
 <code>python3 gellany_plots.py --file train.csv --distr boxplot --hue Survived --column1 Age --column2 Sex</code><br>
+<code>python3 gellany_plots.py --file train.csv --distr distplot --hue Sex --column1 Age --column2 Sex --flask flask</code><br>
 
 
 <code>python3 gellany_plots.py -h</code><br>  
