@@ -4,6 +4,12 @@ import sys
 import matplotlib.pyplot as plt
 import argparse
 import seaborn as sns
+from flask import Response
+from matplotlib.figure import Figure
+from flask import Flask
+import io
+import base64
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 
 
 
@@ -114,31 +120,31 @@ class dist():
                 if self.type == 'boxplot':
                    try :
                            sns.boxplot(x=self.var1, y=self.var2 ,hue=self.hue)
-                           plt.show()
+                           #plt.show()
                    except: 
                            sns.boxplot(self.var1)
-                           plt.show()
+                           #plt.show()
 
                 elif self.type == 'countplot':
                    try :
                            sns.countplot(x=self.var1, y=self.var2 ,hue=self.hue)
-                           plt.show()
+                           #plt.show()
                    except: 
                            sns.countplot(self.var1)
-                           plt.show()
+                           #plt.show()
               
                 elif self.type == 'distplot':
                    try :
                            sns.distplot(x=self.var1, y=self.var2 ,hue=self.hue)
-                           plt.show()
+                           #plt.show()
                    except: 
                            sns.distplot(self.var1)
-                           plt.show()
+                           #plt.show()
                 
                 elif self.type == 'corr':
                    try :
                            sns.heatmap(self.data.corr())
-                           plt.show()
+                           #plt.show()
                    except: 
                            print('error in corr') 
              
@@ -146,10 +152,10 @@ class dist():
                 elif self.type == 'kdeplot':
                    try :
                            sns.kdplot(self.var1[self.var2])
-                           plt.show()
+                           #plt.show()
                    except: 
                            sns.kdeplot(self.var1)
-                           plt.show()
+                           #plt.show()
 
 
     
@@ -186,6 +192,29 @@ class dist():
                 sns.heatmap(self.data.corr())
                 plt.show()
 
+    def flask(self):
+
+                                plt.rcParams["figure.figsize"] = [7.50, 3.50]
+                                plt.rcParams["figure.autolayout"] = True
+                                app = Flask(__name__)
+                                @app.route('/')
+
+
+                                def plot_png():
+                                        
+                                        fig,ax=plt.subplots(figsize=(6,6))
+                                        ax=sns.set(style="darkgrid")
+                                        self.distribution_sns()
+                                        canvas=FigureCanvas(fig)
+                                        img = io.BytesIO()
+                                        fig.savefig(img)
+                                        img.seek(0)
+                                        #return Response(img,mimetype='img/png')
+                                        return Response(img.getvalue(), mimetype='image/png')
+
+
+                                app.run(host="0.0.0.0", port=5000)
+
 
 
 my_parser = argparse.ArgumentParser()
@@ -195,6 +224,7 @@ my_parser.add_argument('--transformed')
 my_parser.add_argument('--column1')
 my_parser.add_argument('--column2')
 my_parser.add_argument('--hue')
+my_parser.add_argument('--flask')
 args = my_parser.parse_args()
 
 print(args.file)
@@ -250,19 +280,22 @@ def main():
 
 			elif args.distribution == 'boxplot' or args.distribution == 'countplot' or args.distribution == 'distplot' or args.distribution == 'corr' or args.distribution == 'kdeplot' :
 
-			     try:         
+			        try:         
 
-				     if isinstance(args.column1, str) == True and isinstance(args.column2, str) == True and isinstance(args.hue, str) == True and isinstance(args.distribution, str) == True: 
-                    					 dist(var1 = data[args.column1], var2 = data[args.column2], hue= data[args.hue], type= args.distribution).distribution_sns()
-				     elif isinstance(args.column1, str) == True and isinstance(args.column2, str) == True and isinstance(args.distribution, str) == True:
-			                    		 dist(var1 = data[args.column1][args.column2], type= args.distribution).distribution_sns()
-				     elif isinstance(args.column1, str) == True and isinstance(args.distribution, str) == True:
-					                 dist(var1 = data[args.column1] ,type= args.distribution).distribution_sns()
-				     elif isinstance(args.distribution, str) == True :
-					                 dist(type= args.distribution).distribution_sns()
+                                                        if isinstance(args.column1, str) == True and isinstance(args.column2, str) == True and isinstance(args.hue, str) == True and isinstance(args.distribution, str) == True and isinstance(args.flask, str) == True:
+                                                                                dist(var1 = data[args.column1], var2 = data[args.column2], hue= data[args.hue], type= args.distribution).flask()
+                                                        elif isinstance(args.column1, str) == True and isinstance(args.column2, str) == True and isinstance(args.hue, str) == True and isinstance(args.distribution, str) == True: 
+                                                                                dist(var1 = data[args.column1], var2 = data[args.column2], hue= data[args.hue], type= args.distribution).distribution_sns()
+                                                                                plt.show()
+                                                        elif isinstance(args.column1, str) == True and isinstance(args.column2, str) == True and isinstance(args.distribution, str) == True:
+                                                                                dist(var1 = data[args.column1][args.column2], type= args.distribution).distribution_sns()
+                                                        elif isinstance(args.column1, str) == True and isinstance(args.distribution, str) == True:
+                                                                                dist(var1 = data[args.column1] ,type= args.distribution).distribution_sns()
+                                                        elif isinstance(args.distribution, str) == True :
+                                                                                dist(type= args.distribution).distribution_sns()
 
 
-			     except:
+			        except:
 					                 print("error in .distribution_sns")
 
 			elif args.distribution == 'count_multi':
@@ -282,3 +315,5 @@ def main():
 			#dist(data['Age'] ,'Age' , data['Sex'], 'Sex').distribution_double()
 
 main()
+#dist(var1 = data[args.column1], var2 = data[args.column2], hue= data[args.hue], type= args.distribution).flask()
+
