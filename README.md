@@ -99,13 +99,13 @@ QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
   
 # docker deploy
 #/home/go/ = your path your already download git folder in it<br>
-<code>docker image build -t gellany_django /home/go/gellany_django</code><br>
-<code>docker run --publish 8000:8000 -it -d gellany_django</code><br>
+<code>docker image build -t gellany_plots /home/go/gellany_plots</code><br>
+<code>docker run --publish 5000:5000 -it -d gellany_plots</code><br>
 <code>docker ps</code><br>
-<code>docker exec -it 83ea954d9b5a python3 manage.py runserver 0.0.0.0:8000</code><br>
+<code>docker exec -it 83ea954d9b5a python3 gellany_plots.py --file train.csv --distr boxplot --column1 Survived --column2 Age --hue Sex<</code><br>
 
-http://0.0.0.0:8000/
-http://0.0.0.0:8000/polls
+http://0.0.0.0:5000/
+http://172.17.0.2:5000/
 
 <code>docker stop f77d93571bcc</code><br>
 <code>docker ps</code><br>
