@@ -46,4 +46,4 @@ optional arguments:
 
 [![asciicast](https://asciinema.org/a/sJrIlSag8Zwz145LQuxQjbWpY.svg)](https://asciinema.org/a/sJrIlSag8Zwz145LQuxQjbWpY)
  
-[![asciicast](https://asciinema.org/a/JP0v9hfWgFMHlywYccWfaktry.svg)](https://asciinema.org/a/JP0v9hfWgFMHlywYccWfaktry)
+[![asciicast](https://asciinema.org/a/502076.svg)](https://asciinema.org/a/502076)
