@@ -42,6 +42,8 @@ optional arguments:
 </code><br>
 
 <code>python3 gellany_plots.py --file train.csv --distr boxplot --hue Sex --column1 Age --column2 Sex --flask flask</code><br>
+
+
 <code>train.csv
  * Serving Flask app "gellany_plots" (lazy loading)
  * Environment: production
