@@ -43,6 +43,6 @@ optional arguments:
 
 <code>python3 gellany_plots.py --file train.csv --distr boxplot --column1 Survived --column2 Age --hue Sex</code><br>
 
-<script id="asciicast-502076" src="https://asciinema.org/a/502076.js" async></script>
+<a href="https://asciinema.org/a/502076" target="_blank"><img src="https://asciinema.org/a/502076.svg" /></a>
  
 [![asciicast](https://asciinema.org/a/502076.svg)](https://asciinema.org/a/502076)
