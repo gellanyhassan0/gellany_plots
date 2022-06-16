@@ -93,7 +93,7 @@ QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
 ![alt text](https://github.com/gellanyhassan0/gellany_plots/blob/main/Screenshot_2022-06-16_01-56-24.png?raw=true)
 
  
-  [![asciicast](https://asciinema.org/a/502076.svg)](https://asciinema.org/a/502076)</code><br>
+  [![asciicast](https://asciinema.org/a/502076.svg)](https://asciinema.org/a/502076)<br>
   
 
   
@@ -126,8 +126,8 @@ http://0.0.0.0:8000/polls
 # docker push
 <code>docker login --username username</code><br>
 <code>docker image list</code><br>
-<code>docker tag a2ac10640f5b gellany/gellany_django</code><br>
-<code>docker push gellany/gellany_django:latest</code><br>
+<code>docker tag a2ac10640f5b gellany/gellany_plots</code><br>
+<code>docker push gellany/gellany_plots:latest</code><br>
 
 # docker image list removed
 <code>docker images rm </code><br>
