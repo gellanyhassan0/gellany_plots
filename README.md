@@ -41,6 +41,20 @@ optional arguments:
 
 </code><br>
 
+<code>python3 gellany_plots.py --file train.csv --distr boxplot --hue Sex --column1 Age --column2 Sex --flask flask
+train.csv
+ * Serving Flask app "gellany_plots" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+/home/go/gellany_plots/gellany_plots.py:205: UserWarning: Starting a Matplotlib GUI outside of the main thread will likely fail.
+  fig,ax=plt.subplots(figsize=(6,6))
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+127.0.0.1 - - [16/Jun/2022 07:52:56] "GET / HTTP/1.1" 200 -<code><br>
+
+
 <code>python3 gellany_plots.py --file train.csv --distr boxplot --column1 Survived --column2 Age --hue Sex</code><br>
 
 ![alt text](https://github.com/gellanyhassan0/gellany_plots/blob/main/Figure_1.png?raw=true)
