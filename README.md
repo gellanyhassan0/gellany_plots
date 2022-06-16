@@ -56,12 +56,13 @@ QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
 127.0.0.1 - - [16/Jun/2022 07:52:56] "GET / HTTP/1.1" 200 -<code><br>
   
 
-![alt text](https://github.com/gellanyhassan0/gellany_plots/blob/main/Screenshot_2022-06-16_08-16-44.png?raw=true)
+![alt text](https://github.com/gellanyhassan0/gellany_plots/blob/main/Screenshot_2022-06-16_08-16-44.png?raw=true)<br>
   
   
   
   
 <code>python3 gellany_plots.py --file train.csv --distr distplot --hue Sex --column1 Age --column2 Sex --flask flask</code><br>
+  
   
 <code>train.csv
  * Serving Flask app "gellany_plots" (lazy loading)
