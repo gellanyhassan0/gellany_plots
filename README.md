@@ -56,6 +56,9 @@ optional arguments:
 QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
 127.0.0.1 - - [16/Jun/2022 07:52:56] "GET / HTTP/1.1" 200 -<code><br>
   
+http://127.0.0.1:5000/
+http://172.17.0.2:5000/
+  
 
 ![alt text](https://github.com/gellanyhassan0/gellany_plots/blob/main/Screenshot_2022-06-16_08-16-44.png?raw=true)<br>
   
@@ -78,6 +81,9 @@ QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
 /usr/local/lib/python3.9/dist-packages/seaborn/distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
   warnings.warn(msg, FutureWarning)
   127.0.0.1 - - [16/Jun/2022 08:17:25] "GET / HTTP/1.1" 200 -</code><br>
+  
+ http://127.0.0.1:5000/
+ http://172.17.0.2:5000/
   
 ![alt text](https://github.com/gellanyhassan0/gellany_plots/blob/main/Screenshot_2022-06-16_08-17-31.png?raw=true)
 
