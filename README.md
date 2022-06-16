@@ -58,6 +58,28 @@ QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
   
 
 ![alt text](https://github.com/gellanyhassan0/gellany_plots/blob/main/Screenshot_2022-06-16_08-16-44.png?raw=true)
+  
+  
+  
+  
+<code>python3 gellany_plots.py --file train.csv --distr distplot --hue Sex --column1 Age --column2 Sex --flask flask</code><br>
+  
+  
+<code>train.csv
+ * Serving Flask app "gellany_plots" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+/home/go/gellany_plots/gellany_plots.py:205: UserWarning: Starting a Matplotlib GUI outside of the main thread will likely fail.
+  fig,ax=plt.subplots(figsize=(6,6))
+QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+/usr/local/lib/python3.9/dist-packages/seaborn/distributions.py:2619: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
+  warnings.warn(msg, FutureWarning)
+  127.0.0.1 - - [16/Jun/2022 08:17:25] "GET / HTTP/1.1" 200 -</code><br>
+  
+![alt text](https://github.com/gellanyhassan0/gellany_plots/blob/main/Screenshot_2022-06-16_08-17-31.png?raw=true)
 
 <code>python3 gellany_plots.py --file train.csv --distr boxplot --column1 Survived --column2 Age --hue Sex</code><br>
 
