@@ -94,3 +94,48 @@ QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
 
  
 [![asciicast](https://asciinema.org/a/502076.svg)](https://asciinema.org/a/502076)
+  
+
+  
+# docker deploy
+#/home/go/ = your path your already download git folder in it<br>
+<code>docker image build -t gellany_django /home/go/gellany_django</code><br>
+<code>docker run --publish 8000:8000 -it -d gellany_django</code><br>
+<code>docker ps</code><br>
+<code>docker exec -it 83ea954d9b5a python3 manage.py runserver 0.0.0.0:8000</code><br>
+
+http://0.0.0.0:8000/
+http://0.0.0.0:8000/polls
+
+<code>docker stop f77d93571bcc</code><br>
+<code>docker ps</code><br>
+
+
+# docker pull direct
+#/home/go/ = your path your already download git folder in it<br>
+<code>docker pull gellany/gellany_django</code><br>
+<code>docker run --publish 8000:8000 -it -d gellany/gellany_django</code><br>
+<code>docker ps</code><br>
+<code>docker exec -it 83ea954d9b5a python3 manage.py runserver 0.0.0.0:8000</code><br>
+<code>docker stop f77d93571bcc</code><br>
+
+http://0.0.0.0:8000/
+http://0.0.0.0:8000/polls
+
+
+# docker push
+<code>docker login --username username</code><br>
+<code>docker image list</code><br>
+<code>docker tag a2ac10640f5b gellany/gellany_django</code><br>
+<code>docker push gellany/gellany_django:latest</code><br>
+
+# docker image list removed
+<code>docker images rm </code><br>
+
+# docker image remove all
+<code>docker image list|awk '{print $3}'|xargs -I z docker rmi --force z</code><br>
+<code>docker image list</code><br>
+
+# docker system Remove unused data
+<code>docker system prune --force</code><br>
+
