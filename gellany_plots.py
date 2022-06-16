@@ -120,31 +120,31 @@ class dist():
                 if self.type == 'boxplot':
                    try :
                            sns.boxplot(x=self.var1, y=self.var2 ,hue=self.hue)
-                           plt.show()
+                           #plt.show()
                    except: 
                            sns.boxplot(self.var1)
-                           plt.show()
+                           #plt.show()
 
                 elif self.type == 'countplot':
                    try :
                            sns.countplot(x=self.var1, y=self.var2 ,hue=self.hue)
-                           plt.show()
+                           #plt.show()
                    except: 
                            sns.countplot(self.var1)
-                           plt.show()
+                           #plt.show()
               
                 elif self.type == 'distplot':
                    try :
                            sns.distplot(x=self.var1, y=self.var2 ,hue=self.hue)
-                           plt.show()
+                           #plt.show()
                    except: 
                            sns.distplot(self.var1)
-                           plt.show()
+                           #plt.show()
                 
                 elif self.type == 'corr':
                    try :
                            sns.heatmap(self.data.corr())
-                           plt.show()
+                           #plt.show()
                    except: 
                            print('error in corr') 
              
@@ -152,10 +152,10 @@ class dist():
                 elif self.type == 'kdeplot':
                    try :
                            sns.kdplot(self.var1[self.var2])
-                           plt.show()
+                           #plt.show()
                    except: 
                            sns.kdeplot(self.var1)
-                           plt.show()
+                           #plt.show()
 
 
     
@@ -204,7 +204,7 @@ class dist():
                                         
                                         fig,ax=plt.subplots(figsize=(6,6))
                                         ax=sns.set(style="darkgrid")
-                                        sns.boxplot(x=self.var1, y=self.var2 ,hue=self.hue)
+                                        self.distribution_sns()
                                         canvas=FigureCanvas(fig)
                                         img = io.BytesIO()
                                         fig.savefig(img)
@@ -286,6 +286,7 @@ def main():
                                                                                 dist(var1 = data[args.column1], var2 = data[args.column2], hue= data[args.hue], type= args.distribution).flask()
                                                         elif isinstance(args.column1, str) == True and isinstance(args.column2, str) == True and isinstance(args.hue, str) == True and isinstance(args.distribution, str) == True: 
                                                                                 dist(var1 = data[args.column1], var2 = data[args.column2], hue= data[args.hue], type= args.distribution).distribution_sns()
+                                                                                plt.show()
                                                         elif isinstance(args.column1, str) == True and isinstance(args.column2, str) == True and isinstance(args.distribution, str) == True:
                                                                                 dist(var1 = data[args.column1][args.column2], type= args.distribution).distribution_sns()
                                                         elif isinstance(args.column1, str) == True and isinstance(args.distribution, str) == True:
