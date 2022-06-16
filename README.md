@@ -93,7 +93,7 @@ QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
 ![alt text](https://github.com/gellanyhassan0/gellany_plots/blob/main/Screenshot_2022-06-16_01-56-24.png?raw=true)
 
  
-[![asciicast](https://asciinema.org/a/502076.svg)](https://asciinema.org/a/502076)
+  [![asciicast](https://asciinema.org/a/502076.svg)](https://asciinema.org/a/502076)</code><br>
   
 
   
