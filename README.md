@@ -140,7 +140,7 @@ http://0.0.0.0:8000/polls
 # docker system Remove unused data
 <code>docker system prune --force</code><br>
   
-#docker check and delete volume
+# docker check and delete volume 
 <code>docker system df</code><br>
 <code>docker system prune</code><br>
 
